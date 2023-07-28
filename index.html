@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tailwind Alpine Layout</title>
+</head>
+
+<body x-data="{openDrawer:false}" class="antialiased text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900">
+
+  <!-- background -->
+  <div class="absolute z-20 top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none">
+    <div class="w-[108rem] flex-none flex justify-end">
+      <picture>
+        <source srcset="/docs@30.8b9a76a2.avif" type="image/avif">
+        <img src="/docs@tinypng.d9e4dcdc.png" alt="" class="w-[71.75rem] flex-none max-w-none dark:hidden" decoding="async">
+      </picture>
+      <picture>
+        <source srcset="/docs-dark@30.1a9f8cbf.avif" type="image/avif">
+        <img src="/docs-dark@tinypng.1bbe175e.png" alt="" class="w-[90rem] flex-none max-w-none hidden dark:block" decoding="async">
+      </picture>
+    </div>
+  </div>
+  <header class="border border-red-500 sticky top-0 z-40 w-full backdrop-blur transition-colors duration-500 lg:border-b lg:border-slate-900/10">
+
+    <div class="max-w-[90rem] mx-auto">
+      <!-- class="border border-red-500 py-4 border-b border-slate-900/10" -->
+
+      <!-- *** ROW HEADER *** -->
+      <div class="border border-red-500 py-4">
+        <div class="relative px-4 flex items-center text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+
+          <!--  ***** NAVIGATION ASIDE ***** -->
+          <button @click="openDrawer=true" class="lg:hidden">
+            <span class="sr-only">Navigation</span>
+            <svg width="24" height="24">
+              <path d="M5 6h14M5 12h14M5 18h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              </path>
+            </svg>
+          </button>
+
+
+          <!-- LOGO -->
+          <div class="ml-2 flex-1 flex text-center justify-center lg:flex-none">
+            <svg viewBox="0 0 316 316" xmlns="http://www.w3.org/2000/svg" class="h-9 w-9">
+              <path class="fill-sky-600 dark:fill-sky-300" d="M305.8 81.125C305.77 80.995 305.69 80.885 305.65 80.755C305.56 80.525 305.49 80.285 305.37 80.075C305.29 79.935 305.17 79.815 305.07 79.685C304.94 79.515 304.83 79.325 304.68 79.175C304.55 79.045 304.39 78.955 304.25 78.845C304.09 78.715 303.95 78.575 303.77 78.475L251.32 48.275C249.97 47.495 248.31 47.495 246.96 48.275L194.51 78.475C194.33 78.575 194.19 78.725 194.03 78.845C193.89 78.955 193.73 79.045 193.6 79.175C193.45 79.325 193.34 79.515 193.21 79.685C193.11 79.815 192.99 79.935 192.91 80.075C192.79 80.285 192.71 80.525 192.63 80.755C192.58 80.875 192.51 80.995 192.48 81.125C192.38 81.495 192.33 81.875 192.33 82.265V139.625L148.62 164.795V52.575C148.62 52.185 148.57 51.805 148.47 51.435C148.44 51.305 148.36 51.195 148.32 51.065C148.23 50.835 148.16 50.595 148.04 50.385C147.96 50.245 147.84 50.125 147.74 49.995C147.61 49.825 147.5 49.635 147.35 49.485C147.22 49.355 147.06 49.265 146.92 49.155C146.76 49.025 146.62 48.885 146.44 48.785L93.99 18.585C92.64 17.805 90.98 17.805 89.63 18.585L37.18 48.785C37 48.885 36.86 49.035 36.7 49.155C36.56 49.265 36.4 49.355 36.27 49.485C36.12 49.635 36.01 49.825 35.88 49.995C35.78 50.125 35.66 50.245 35.58 50.385C35.46 50.595 35.38 50.835 35.3 51.065C35.25 51.185 35.18 51.305 35.15 51.435C35.05 51.805 35 52.185 35 52.575V232.235C35 233.795 35.84 235.245 37.19 236.025L142.1 296.425C142.33 296.555 142.58 296.635 142.82 296.725C142.93 296.765 143.04 296.835 143.16 296.865C143.53 296.965 143.9 297.015 144.28 297.015C144.66 297.015 145.03 296.965 145.4 296.865C145.5 296.835 145.59 296.775 145.69 296.745C145.95 296.655 146.21 296.565 146.45 296.435L251.36 236.035C252.72 235.255 253.55 233.815 253.55 232.245V174.885L303.81 145.945C305.17 145.165 306 143.725 306 142.155V82.265C305.95 81.875 305.89 81.495 305.8 81.125ZM144.2 227.205L100.57 202.515L146.39 176.135L196.66 147.195L240.33 172.335L208.29 190.625L144.2 227.205ZM244.75 114.995V164.795L226.39 154.225L201.03 139.625V89.825L219.39 100.395L244.75 114.995ZM249.12 57.105L292.81 82.265L249.12 107.425L205.43 82.265L249.12 57.105ZM114.49 184.425L96.13 194.995V85.305L121.49 70.705L139.85 60.135V169.815L114.49 184.425ZM91.76 27.425L135.45 52.585L91.76 77.745L48.07 52.585L91.76 27.425ZM43.67 60.135L62.03 70.705L87.39 85.305V202.545V202.555V202.565C87.39 202.735 87.44 202.895 87.46 203.055C87.49 203.265 87.49 203.485 87.55 203.695V203.705C87.6 203.875 87.69 204.035 87.76 204.195C87.84 204.375 87.89 204.575 87.99 204.745C87.99 204.745 87.99 204.755 88 204.755C88.09 204.905 88.22 205.035 88.33 205.175C88.45 205.335 88.55 205.495 88.69 205.635L88.7 205.645C88.82 205.765 88.98 205.855 89.12 205.965C89.28 206.085 89.42 206.225 89.59 206.325C89.6 206.325 89.6 206.325 89.61 206.335C89.62 206.335 89.62 206.345 89.63 206.345L139.87 234.775V285.065L43.67 229.705V60.135ZM244.75 229.705L148.58 285.075V234.775L219.8 194.115L244.75 179.875V229.705ZM297.2 139.625L253.49 164.795V114.995L278.85 100.395L297.21 89.825V139.625H297.2Z" />
+            </svg>
+          </div>
+
+          <!-- ******************* NAV & SWITCH-THEME ON DESKTOP -->
+          <div class="relative items-center ml-auto hidden lg:flex">
+
+            <!-- navigation -->
+            <nav class="text-sm leading-6 font-semibold">
+              <ul class="flex space-x-8">
+                <li>Login</li>
+                <li>Register</li>
+              </ul>
+            </nav>
+
+            <!-- theme -->
+            <div x-data="{open:false}" @click.outside="open=false" class="flex items-center ml-6 pl-6">
+
+              <label class="sr-only">Theme</label>
+              <button @click="open=true" type="button" aria-haspopup="true" aria-expanded="false">
+                <!-- sun -->
+                <span class="dark:hidden">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                    <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" class="fill-sky-400/20 stroke-sky-500"></path>
+                    <path d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836" class="stroke-sky-500"></path>
+                  </svg>
+                </span>
+                <!-- moon -->
+                <span class="hidden dark:inline">
+                  <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17.715 15.15A6.5 6.5 0 0 1 9 6.035C6.106 6.922 4 9.645 4 12.867c0 3.94 3.153 7.136 7.042 7.136 3.101 0 5.734-2.032 6.673-4.853Z" class="fill-sky-400/20"></path>
+                    <path d="m17.715 15.15.95.316a1 1 0 0 0-1.445-1.185l.495.869ZM9 6.035l.846.534a1 1 0 0 0-1.14-1.49L9 6.035Zm8.221 8.246a5.47 5.47 0 0 1-2.72.718v2a7.47 7.47 0 0 0 3.71-.98l-.99-1.738Zm-2.72.718A5.5 5.5 0 0 1 9 9.5H7a7.5 7.5 0 0 0 7.5 7.5v-2ZM9 9.5c0-1.079.31-2.082.845-2.93L8.153 5.5A7.47 7.47 0 0 0 7 9.5h2Zm-4 3.368C5 10.089 6.815 7.75 9.292 6.99L8.706 5.08C5.397 6.094 3 9.201 3 12.867h2Zm6.042 6.136C7.718 19.003 5 16.268 5 12.867H3c0 4.48 3.588 8.136 8.042 8.136v-2Zm5.725-4.17c-.81 2.433-3.074 4.17-5.725 4.17v2c3.552 0 6.553-2.327 7.622-5.537l-1.897-.632Z" class="fill-sky-500"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17 3a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 1 1 0 2 2 2 0 0 0-2 2 1 1 0 1 1-2 0 2 2 0 0 0-2-2 1 1 0 1 1 0-2 2 2 0 0 0 2-2 1 1 0 0 1 1-1Z" class="fill-sky-500"></path>
+                  </svg>
+                </span>
+              </button>
+
+              <ul x-show="open" class="absolute top-full right-0 z-50 bg-white rounded-lg ring-1 ring-slate-900/10 shadow-lg overflow-hidden w-36 py-1 text-sm text-slate-700 font-semibold dark:bg-slate-800 dark:ring-0 dark:text-slate-300 mt-8">
+                <li @click="$store.theme.switch('light');open=false" class="py-1 px-2 flex items-center cursor-pointer hover:bg-slate-200/50 dark:hover:bg-slate-700" :class="{'text-sky-500': $store.theme.value === 'light'}">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-2">
+                    <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" class="fill-slate-400 dark:fill-slate-500" :class="{'fill-sky-400/20 stroke-sky-500': $store.theme.value === 'light'}">
+                    </path>
+                    <path d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836" class="stroke-sky-500"></path>
+                  </svg>Light
+                </li>
+
+                <li @click="$store.theme.switch('dark');open=false" class="py-1 px-2 flex items-center cursor-pointer hover:bg-slate-200/50 dark:hover:bg-slate-700" :class="{'text-sky-500': $store.theme.value === 'dark'}">
+                  <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6 mr-2">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17.715 15.15A6.5 6.5 0 0 1 9 6.035C6.106 6.922 4 9.645 4 12.867c0 3.94 3.153 7.136 7.042 7.136 3.101 0 5.734-2.032 6.673-4.853Z" class="fill-transparent"></path>
+                    <path d="m17.715 15.15.95.316a1 1 0 0 0-1.445-1.185l.495.869ZM9 6.035l.846.534a1 1 0 0 0-1.14-1.49L9 6.035Zm8.221 8.246a5.47 5.47 0 0 1-2.72.718v2a7.47 7.47 0 0 0 3.71-.98l-.99-1.738Zm-2.72.718A5.5 5.5 0 0 1 9 9.5H7a7.5 7.5 0 0 0 7.5 7.5v-2ZM9 9.5c0-1.079.31-2.082.845-2.93L8.153 5.5A7.47 7.47 0 0 0 7 9.5h2Zm-4 3.368C5 10.089 6.815 7.75 9.292 6.99L8.706 5.08C5.397 6.094 3 9.201 3 12.867h2Zm6.042 6.136C7.718 19.003 5 16.268 5 12.867H3c0 4.48 3.588 8.136 8.042 8.136v-2Zm5.725-4.17c-.81 2.433-3.074 4.17-5.725 4.17v2c3.552 0 6.553-2.327 7.622-5.537l-1.897-.632Z" class="fill-slate-400 dark:fill-slate-500"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17 3a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 1 1 0 2 2 2 0 0 0-2 2 1 1 0 1 1-2 0 2 2 0 0 0-2-2 1 1 0 1 1 0-2 2 2 0 0 0 2-2 1 1 0 0 1 1-1Z" class="fill-slate-400 dark:fill-slate-500" :class="{'fill-sky-400/20 stroke-sky-500': $store.theme.value === 'dark'}">
+                    </path>
+                  </svg>Dark
+                </li>
+
+                <li @click="$store.theme.switch('system');open=false" class="py-1 px-2 flex items-center cursor-pointer hover:bg-slate-200/50 dark:hover:bg-slate-700" :class="{'text-sky-500': $store.theme.value === 'system'}">
+                  <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6 mr-2">
+                    <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z" stroke-width="2" stroke-linejoin="round" class="stroke-slate-400 dark:stroke-slate-500" :class="{'fill-sky-400/20 stroke-sky-500': $store.theme.value === 'system'}">
+                    </path>
+                    <path d="M14 15c0 3 2 5 2 5H8s2-2 2-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dark:stroke-slate-500" :class="{'stroke-sky-500': $store.theme.value === 'system'}">
+                    </path>
+                  </svg>System
+                </li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+
+
+
+          <!-- Navigation mobile -->
+          <div class="ml-2 lg:hidden">
+            <button @click="$store.menu.open()" type="button" class="text-slate-500 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300">
+              <span class="sr-only">Navigation</span>
+              <svg width="24" height="24" fill="none" aria-hidden="true">
+                <path d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                </path>
+              </svg>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- backdrop overlay nav main on first mobile -->
+  <div x-data x-show="$store.menu.on" class="border-4 border-blue-500 fixed inset-0 z-50 lg:hidden bg-black/20 backdrop-blur-sm dark:bg-slate-900/80">
+    <div @click.outside="$store.menu.close()" class="fixed top-4 right-4 bg-white w-full max-w-xs rounded-lg shadow-lg p-6 text-base font-semibold text-slate-900 dark:bg-slate-800 dark:text-slate-400 ">
+      <button @click="$store.menu.close()" type="button" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300" tabindex="0"><span class="sr-only">Close navigation</span><svg viewBox="0 0 10 10" class="w-2.5 h-2.5 overflow-visible" aria-hidden="true">
+          <path d="M0 0L10 10M10 0L0 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+        </svg>
+      </button>
+      <ul class="space-y-6">
+        <li>Login</li>
+        <li>Register</li>
+      </ul>
+      <div class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-200/10">
+        <div class="flex items-center justify-between">
+          <label for="theme" class="text-slate-700 font-normal dark:text-slate-400">Switch theme</label>
+          <div class="relative flex items-center ring-1 ring-slate-900/10 rounded-lg shadow-sm p-2 text-slate-700 font-semibold dark:bg-slate-600 dark:ring-0 dark:highlight-white/5 dark:text-slate-200">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-2 dark:hidden">
+              <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" class="stroke-slate-400 dark:stroke-slate-500"></path>
+              <path d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836" class="stroke-slate-400 dark:stroke-slate-500"></path>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6 mr-2 hidden dark:block">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M17.715 15.15A6.5 6.5 0 0 1 9 6.035C6.106 6.922 4 9.645 4 12.867c0 3.94 3.153 7.136 7.042 7.136 3.101 0 5.734-2.032 6.673-4.853Z" class="fill-transparent"></path>
+              <path d="m17.715 15.15.95.316a1 1 0 0 0-1.445-1.185l.495.869ZM9 6.035l.846.534a1 1 0 0 0-1.14-1.49L9 6.035Zm8.221 8.246a5.47 5.47 0 0 1-2.72.718v2a7.47 7.47 0 0 0 3.71-.98l-.99-1.738Zm-2.72.718A5.5 5.5 0 0 1 9 9.5H7a7.5 7.5 0 0 0 7.5 7.5v-2ZM9 9.5c0-1.079.31-2.082.845-2.93L8.153 5.5A7.47 7.47 0 0 0 7 9.5h2Zm-4 3.368C5 10.089 6.815 7.75 9.292 6.99L8.706 5.08C5.397 6.094 3 9.201 3 12.867h2Zm6.042 6.136C7.718 19.003 5 16.268 5 12.867H3c0 4.48 3.588 8.136 8.042 8.136v-2Zm5.725-4.17c-.81 2.433-3.074 4.17-5.725 4.17v2c3.552 0 6.553-2.327 7.622-5.537l-1.897-.632Z" class="fill-slate-400"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M17 3a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 1 1 0 2 2 2 0 0 0-2 2 1 1 0 1 1-2 0 2 2 0 0 0-2-2 1 1 0 1 1 0-2 2 2 0 0 0 2-2 1 1 0 0 1 1-1Z" class="fill-slate-400"></path>
+            </svg>
+            <span x-text="$store.theme.value" class="capitalize"></span>
+            <svg class="w-6 h-6 ml-2 text-slate-400" fill="none">
+              <path d="m15 11-3 3-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+
+            <select id="theme" @change="$store.theme.switch($event.target.value)" class="absolute appearance-none inset-0 w-full h-full opacity-0">
+              <option class="dark:bg-slate-700" value="light">Light</option>
+              <option class="dark:bg-slate-700" value="dark">Dark</option>
+              <option class="dark:bg-slate-700" value="system">System</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- ASIDE & MAIN AREA**************************************************************************************** -->
+  <div class="border border-white max-w-[90rem] mx-auto">
+
+    <div class="lg:flex">
+
+      <aside class="w-80 fixed inset-0 z-50 overflow-y-auto h-screen lg:h-[calc(100vh_-_5rem)]  bg-white  dark:bg-slate-800 transform duration-300 lg:static lg:translate-x-0 lg:transform-none lg:opacity-100" :class="{'translate-x-0 ease-in opacity-100': openDrawer===true, '-translate-x-full ease-out opacity-0': openDrawer===false}">
+        <div class="relative  p-6 h-full">
+          <button @click="openDrawer=false" class="absolute top-5 right-5 z-20 lg:hidden w-8 h-8 flex items-center justify-center text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300">
+            <span class="sr-only">Close navigation</span>
+            <svg viewBox="0 0 10 10" class="w-2.5 h-2.5 overflow-visible">
+              <path d="M0 0L10 10M10 0L0 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </button>
+          <p>Lorem ipsum dolor sit, Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos vel eveniet neque numquam debitis voluptatibus in ipsum doloribus commodi. Nam quis iure quod blanditiis ab ex animi sapiente unde suscipit ipsum aliquid dignissimos, reiciendis minus modi illo ipsa, eius consequatur delectus magni veritatis vitae mollitia sequi? Ipsam fugiat, eius ducimus voluptatibus reiciendis, quia cum amet nihil explicabo, dolore eligendi iste. Quod corporis, odio esse error accusantium minus consectetur quibusdam mollitia officia maiores fuga cum facere enim debitis ipsam dolore dolor in dolores tenetur quidem veritatis? Veritatis repudiandae quae atque! Perferendis facilis assumenda totam et laboriosam eos facere commodi sapiente aspernatur earum itaque vero culpa, unde sunt quis. Voluptatibus aut iste doloremque optio velit! Repudiandae obcaecati quia mollitia. Sapiente soluta provident adipisci? Tenetur quia labore omnis, perspiciatis maxime rerum fugit distinctio mollitia quibusdam ad tempore nam eveniet aspernatur officiis, officia inventore dignissimos. Quibusdam, expedita deserunt nesciunt corrupti asperiores, itaque dolor quia corporis officia deleniti aperiam veniam officiis pariatur. Tempora officiis nostrum debitis iusto a nobis sapiente et repellat ullam dignissimos cum inventore libero sequi ad, fugiat quia possimus quam impedit quae voluptates placeat. Quidem voluptas rem repellendus perspiciatis et quibusdam provident ducimus debitis, labore pariatur est natus doloribus. Asperiores placeat et, temporibus, quod voluptate at veritatis officiis deserunt numquam, fugiat tempore adipisci quis? Eligendi eum, obcaecati dolorem quibusdam ratione impedit dolore, similique sint consectetur alias velit voluptate earum aut excepturi voluptatem, eius dolores architecto doloribus? Deserunt, voluptatibus repellendus quia adipisci exercitationem laborum sit doloremque ratione dignissimos nobis minus, aspernatur pariatur voluptates! Praesentium vel deleniti dolores eius sequi minima impedit mollitia consequuntur quo illum, vitae maxime voluptatum a maiores dolor corporis sit porro quas magnam suscipit, rerum perferendis vero dolore. Et similique sequi blanditiis est eos autem nobis ipsum officia, optio nulla maiores perferendis sint voluptas ullam ab voluptates in impedit veritatis nesciunt nisi quisquam laboriosam assumenda suscipit libero. Eveniet at, iusto dolorem optio ad voluptate repudiandae sapiente quas aperiam ipsa, hic veniam nihil maiores voluptatum praesentium illum reprehenderit in placeat error cupiditate! Blanditiis sed, sint neque dolorem dolorum quam minus a vitae iusto reiciendis, repellendus obcaecati architecto natus cumque ratione id beatae suscipit eveniet praesentium ullam, quas culpa modi ex? Est numquam commodi architecto nostrum odio quibusdam praesentium impedit laboriosam eveniet adipisci eos exercitationem sapiente, odit totam vel, soluta voluptatum porro natus rerum, dolorum eum error nam. Facilis at nihil illum ullam, blanditiis, fugiat architecto iusto atque modi, autem adipisci id consectetur itaque optio quae quia eos veniam ipsam in exercitationem sed quis. Repellendus quis temporibus atque inventore, possimus modi minima tempore doloribus magni sequi? Sed tempore eaque reiciendis praesentium, natus veniam perferendis debitis iste provident adipisci quisquam quaerat sequi assumenda odit mollitia temporibus nemo est hic illo! Incidunt distinctio amet deleniti adipisci porro maiores harum nesciunt maxime voluptates eveniet perspiciatis voluptate, recusandae obcaecati in sequi aspernatur quisquam! Non itaque dignissimos corporis labore! Sit autem earum cum deserunt minus nulla et, sed, ad veniam tempore aut accusamus, mollitia adipisci eius magnam excepturi? Molestias, dicta nulla eveniet maxime quos unde! Quidem molestias nihil saepe, sed praesentium excepturi molestiae temporibus doloribus dolorem laborum sapiente iusto fugiat illo eum aliquam facilis neque amet facere commodi suscipit placeat dicta incidunt assumenda. Minima corrupti quas, ut reprehenderit natus modi error fuga doloribus deserunt tempore aliquid, adipisci ipsam est repudiandae enim ad veritatis similique quis velit sequi sunt odio aspernatur. Perferendis explicabo doloremque aliquid nesciunt velit ex, reiciendis possimus harum deserunt. Laboriosam inventore beatae aspernatur omnis asperiores minus at alias ut eveniet quaerat id, cum quos, odit voluptatem ipsa hic temporibus aliquam? Aliquid neque rem maxime, consequuntur quaerat eligendi ut odio? Expedita atque provident reprehenderit iusto voluptatum, accusantium natus rerum autem ab dolore animi neque voluptas dignissimos ducimus molestias nostrum nulla exercitationem quae soluta laboriosam? Ad vitae expedita harum odit repellat possimus veniam a accusamus nostrum ipsum exercitationem cumque impedit ipsa ducimus ipsam aliquam, quam omnis corrupti error tempore. Possimus vel quia quos! Dolores ad asperiores id consequuntur dignissimos iste amet deserunt modi ex autem, illum est laudantium obcaecati vel reiciendis maiores delectus dolor tempora non corrupti blanditiis iure eligendi ipsa? Dolore cum consequatur accusantium voluptatem incidunt eligendi dicta repellat, illum magni quas odit veniam cumque! Tenetur officia illum eaque quam tempore reprehenderit. Dolore incidunt aperiam repudiandae? </p>
+        </div>
+
+      </aside>
+
+      <div x-show="openDrawer" @click="openDrawer=false" class="fixed inset-0 lg:hidden bg-black/20 backdrop-blur-sm dark:bg-slate-900/80">
+      </div>
+
+
+      <main class="border border-blue-200 w-full h-[calc(100vh_-_5rem)] overflow-y-auto">
+        <div class="border border-red-500 flex justify-center items-center max-w-xs w-full mx-auto mt-16 h-32 p-5">
+          <p>Theme value: <span x-data x-text="$store.theme.value" class="font-bold"></span></p>
+        </div>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi voluptatum hic esse quas quasi, architecto fuga accusamus atque cumque, dolore aliquam. Earum, deleniti. In nihil nobis a minima provident nostrum quae saepe magni recusandae! Corporis aliquam odio, ipsam quas nihil magnam! Ipsum, perspiciatis. Pariatur esse ut ipsum officia magni, earum assumenda, temporibus sed nobis, veniam non voluptate. Enim quod molestias ipsum consectetur nemo minus modi sed magni tempore neque provident eligendi ipsa suscipit officia, dicta qui expedita maxime quis fuga nihil? Praesentium, tenetur! Suscipit ex distinctio repellendus harum consectetur at necessitatibus, ipsum fuga dolor modi aut, cum, corporis maiores hic illum enim animi perferendis neque autem minus delectus natus. Soluta non repudiandae magnam ullam totam! Culpa, ipsa libero totam facere tempore voluptates omnis saepe quisquam odit nobis rerum error aut et qui perferendis adipisci provident in soluta! Accusamus quam modi nulla praesentium delectus odio assumenda distinctio fugit aut veniam, similique numquam cumque ducimus expedita ullam, adipisci iste unde facere, dolore debitis maxime mollitia porro dolor culpa! Consequuntur et magni accusantium iusto animi autem! Odio sapiente possimus beatae dolor libero. Nostrum aliquam repudiandae distinctio aliquid dignissimos culpa temporibus. Modi quidem vero voluptas dignissimos, ab inventore molestiae voluptates praesentium esse delectus rerum est porro velit exercitationem nobis vel iusto tempore pariatur. Omnis porro provident quis animi exercitationem distinctio expedita ex blanditiis doloremque. Autem officia a explicabo. Aperiam, assumenda cupiditate. Laboriosam natus voluptatem dolor commodi amet molestias ipsam harum nostrum, ipsum reiciendis sapiente iste a eius quo rem nulla hic voluptate nihil recusandae odit. Eos, quis modi. Repellat voluptatem, nostrum doloremque necessitatibus quo nihil. Aliquid iure alias, eaque officia asperiores atque ab eveniet veritatis rem impedit sed ipsam distinctio perferendis corporis. Nihil eos accusantium, quam saepe fugit quo libero cupiditate excepturi exercitationem molestiae. Expedita in voluptates harum facilis dolor dolore, beatae possimus obcaecati excepturi totam, ea soluta, incidunt fugit sapiente rem! Iure amet magni cum obcaecati, doloremque enim ullam libero optio veritatis saepe autem a vitae, quis placeat officia? Maxime modi optio ullam ipsum blanditiis quisquam temporibus quae recusandae facere, soluta nemo delectus laboriosam repellat vel? Quis fugit veniam voluptatibus expedita nihil porro quaerat ipsam deleniti accusamus, earum excepturi! Velit, placeat quidem nostrum qui voluptas explicabo iure libero assumenda dolore debitis doloremque voluptates iste non, adipisci enim impedit laboriosam tempore ut quo harum, animi nisi doloribus! Repellendus eligendi vero beatae enim id alias sunt fuga et culpa eius? In voluptate facere saepe ducimus atque officia enim deleniti ullam. Veniam non necessitatibus dolores, tempora animi ex inventore consectetur! Libero ullam quisquam quidem consequuntur, debitis nostrum, magnam ab nemo beatae laudantium reiciendis pariatur quia officiis unde facilis quam minima est? Laborum consequatur reiciendis doloribus voluptate mollitia aliquid, harum nulla incidunt ipsum debitis repellendus labore neque, dolorem, soluta veritatis temporibus molestiae? Ratione suscipit iste, dignissimos harum laborum modi laboriosam ipsum, minima omnis quasi ut non itaque nostrum incidunt veritatis facilis consequuntur quisquam enim quos eligendi nobis mollitia, corporis qui. Sapiente consequuntur modi, sed ad maxime eveniet voluptatibus eligendi. Consequatur ratione facere consectetur impedit atque, porro incidunt suscipit vel aliquam perspiciatis ducimus esse ipsam, unde veritatis eveniet repudiandae excepturi itaque! Impedit debitis, magni accusantium culpa maxime, asperiores dignissimos repudiandae vel alias nam aperiam repellat. Maxime provident explicabo sequi cum officia ipsum, suscipit et nihil expedita consectetur ipsam eligendi eos? In pariatur eius nulla voluptates et tempora suscipit nesciunt, voluptatem iusto incidunt quae quo praesentium temporibus voluptate sed alias esse impedit. Earum temporibus magnam, nihil nobis numquam explicabo atque natus eligendi. Dicta iusto impedit ad dolorum libero itaque architecto odit veritatis consequuntur similique iure quo suscipit, veniam numquam voluptatem quis laboriosam sed. Obcaecati corporis eligendi eum id explicabo? Molestias tempora quis, reiciendis sed, soluta voluptatum non impedit consequuntur excepturi dolorem distinctio architecto mollitia corrupti ipsam perferendis esse incidunt delectus. Dolor nostrum laudantium corrupti in ipsum unde ratione, veritatis iure. Praesentium ipsa sunt delectus nihil ipsam officia! Magni temporibus reiciendis porro illo deserunt qui minus alias fuga. Vel totam tempore placeat hic dicta necessitatibus reiciendis dolore provident porro exercitationem enim sed fuga, minus numquam modi at suscipit. Blanditiis odio aspernatur odit labore repellat quisquam, harum sint deleniti. Accusamus impedit, veritatis ducimus labore delectus laudantium obcaecati sunt nam deleniti incidunt assumenda sapiente modi adipisci praesentium doloribus deserunt dicta nemo accusantium, magnam quas debitis ratione error? Commodi exercitationem error est hic pariatur suscipit rem explicabo corporis provident non sed ex et molestiae nisi iure, sit, deserunt modi quos. Sequi assumenda in quod accusantium doloremque pariatur eum odio officiis eaque perferendis quidem alias mollitia, cumque nulla facilis id excepturi repudiandae reprehenderit enim, nobis consectetur numquam tenetur nemo? Ipsa eligendi, accusantium, dicta officia quia aliquid facilis fugiat quam recusandae sit, sed commodi eum nemo totam. Nobis reiciendis exercitationem placeat atque modi officiis in quaerat laudantium blanditiis aspernatur esse, neque inventore laboriosam, sequi maiores numquam alias minima molestias quos, voluptatum impedit ducimus velit? Ab?</p>
+      </main>
+
+    </div>
+
+  </div>
+
+
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>
